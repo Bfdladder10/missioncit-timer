@@ -1,3 +1,16 @@
+/* CSS Reset */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 /* Common styles */
 body {
     margin: 0;
@@ -195,17 +208,23 @@ body {
     cursor: not-allowed;
 }
 
+/* Reset for candidate view */
+.candidate-view, 
+.candidate-view body {
+    background-color: #000000 !important;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    width: 100%;
+}
+
 /* Candidate View Styles */
 .candidate-view {
-    background-color: black;
-    color: white;
-    padding: 0;
-    margin: 0;
-    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    color: white;
 }
 
 .candidate-view .timer-display {
@@ -232,6 +251,31 @@ body {
     margin: 20px 0;
     color: white;
     text-align: center;
+}
+
+.candidate-view .connection-status {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    border-radius: 20px;
+    z-index: 100;
+}
+
+.candidate-view .control-button {
+    background-color: #C57100;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.candidate-view .control-button:hover {
+    background-color: #B36200;
 }
 
 /* Session Info Styles */
