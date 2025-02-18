@@ -127,16 +127,17 @@ body {
     border-radius: 4px;
     background-color: #e8f5e9;
     min-width: 85px;
+    color: #2e7d32;
 }
 
 .timer-display.yellow {
-    background-color: #fff3e0;
-    color: #f57c00;
+    background-color: #c17900;  /* Dark amber */
+    color: white;  /* White text for maximum contrast */
 }
 
 .timer-display.red {
-    background-color: #ffebee;
-    color: #d32f2f;
+    background-color: #d32f2f;  /* Darker red */
+    color: white;  /* White text */
 }
 
 .timer-inputs {
