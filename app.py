@@ -7,7 +7,7 @@ from datetime import datetime
 import socket
 import os
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='/static', static_folder='static')
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'your-secret-key-here')
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16MB max file size
 
@@ -28,14 +28,6 @@ def after_request(response):
     response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
     response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
     return response
-
-# Enable CORS in production with specific origins
-if os.environ.get('FLASK_ENV') == 'production':
-    from flask_cors import CORS
-    CORS(app, resources={r"/*": {"origins": [
-        "https://yourdomain.com",  # Replace with your domain
-        "https://www.yourdomain.com"
-    ]}})
 
 # Store active exam sessions
 exam_sessions = {}
