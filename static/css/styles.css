@@ -341,13 +341,13 @@ body {
 
 /* Landing Page Styles */
 .landing-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    padding: 20px;
+    max-width: 600px;
+    margin: 100px auto;
+    padding: 40px;
     text-align: center;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
 .landing-header {
@@ -355,9 +355,24 @@ body {
 }
 
 .landing-header h1 {
+    margin: 0;
+    font-size: 32px;
     color: #333;
-    margin: 10px 0;
+    font-weight: normal;
+}
+
+.brand-name {
+    font-size: 48px !important;
+    color: #C57100 !important;
+    font-weight: bold !important;
+    margin: 10px 0 !important;
+}
+
+.brand-subtitle {
     font-size: 24px;
+    color: #666;
+    margin: 0;
+    font-weight: normal;
 }
 
 .logo-container {
@@ -365,42 +380,29 @@ body {
 }
 
 .logo {
-    width: 120px;
+    width: 200px;
     height: auto;
+    margin: 0 auto;
     display: block;
-}
-
-.brand-name {
-    color: #C57100;
-    font-size: 36px;
-    margin: 10px 0;
-    font-weight: bold;
-}
-
-.brand-subtitle {
-    color: #333;
-    font-size: 24px;
-    margin: 5px 0;
 }
 
 .role-buttons {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    margin-top: 30px;
+    gap: 15px;
 }
 
 .role-button {
-    display: inline-block;
-    padding: 15px 30px;
-    min-width: 200px;
-    font-size: 18px;
-    text-decoration: none;
-    color: white;
-    background-color: #C57100;
+    padding: 20px;
+    font-size: 20px;
     border: none;
     border-radius: 8px;
-    transition: all 0.3s ease;
+    background-color: #C57100;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none;
+    display: block;
 }
 
 .role-button:hover {
