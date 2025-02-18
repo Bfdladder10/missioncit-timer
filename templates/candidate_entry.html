@@ -3,27 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Join Session</title>
+    <title>Enter Session Code - MissionCIT Timer</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
-<body>
-    <div class="code-entry">
-        <h2>Enter Session Code</h2>
-        {% if request.args.get('error') %}
-        <div class="error-message">{{ request.args.get('error') }}</div>
-        {% endif %}
-        <form class="code-form" action="{{ url_for('join') }}" method="post">
-            <input type="text" 
-                   name="session_code" 
-                   pattern="[0-9]{6}" 
-                   maxlength="6" 
-                   placeholder="Enter 6-digit code"
-                   required
-                   inputmode="numeric"
-                   autocomplete="off">
-            <button type="submit" class="submit-button">Join Session</button>
+<body class="candidate-entry">
+    <div class="entry-container">
+        <div class="logo-container">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="MissionCIT Logo" class="logo">
+        </div>
+        <h1>Enter Session Code</h1>
+        <form class="entry-form" action="{{ url_for('join') }}" method="post">
+            <input type="text" name="session_code" placeholder="Enter 6-digit code" required pattern="[0-9]{6}" maxlength="6">
+            <button type="submit">Join Session</button>
         </form>
-        <a href="{{ url_for('index') }}" class="back-link">← Back to Role Selection</a>
+        {% if request.args.get('error') %}
+        <div class="error-message">
+            {{ request.args.get('error') }}
+        </div>
+        {% endif %}
     </div>
 </body>
 </html>
