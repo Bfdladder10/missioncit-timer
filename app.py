@@ -7,7 +7,10 @@ from datetime import datetime
 import socket
 import os
 
-app = Flask(__name__, static_url_path='/static', static_folder='static')
+app = Flask(__name__, 
+           static_url_path='',  # This ensures static files are served from root
+           static_folder='static',
+           template_folder='templates')
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'your-secret-key-here')
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16MB max file size
 
