@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MissionCIT Event Timer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="landing-container">
+        <div class="landing-header">
+            <div class="logo-container">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="MissionCIT Logo" class="logo">
+            </div>
+            <h1>Welcome to</h1>
+            <h1 class="brand-name">MissionCIT</h1>
+            <h2 class="brand-subtitle">Event Timer</h2>
+        </div>
+        <div class="role-buttons">
+            <a href="{{ url_for('proctor') }}" class="role-button">I am a Proctor</a>
+            <a href="{{ url_for('candidate_entry') }}" class="role-button">I am a Candidate</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,456 @@
+/* Common styles */
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%);
+    font-family: Arial, sans-serif;
+}
+
+.header {
+    padding: 10px;
+    text-align: center;
+}
+
+.connection-status {
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 15px;
+    background-color: #ffebee;
+    color: #d32f2f;
+}
+
+.connection-status.connected {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+}
+
+.connection-status.disconnected {
+    background-color: #ffebee;
+    color: #d32f2f;
+}
+
+/* Proctor View Styles */
+.proctor-view {
+    background-color: #f5f5f5;
+    padding: 20px;
+}
+
+.controls {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.control-button {
+    padding: 10px 20px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 4px;
+    background-color: #1976d2;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.control-button:hover {
+    background-color: #1565c0;
+}
+
+.settings {
+    margin-top: 15px;
+}
+
+.settings label {
+    margin-right: 15px;
+}
+
+.small-button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #1976d2;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.timer-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.timer-card {
+    background: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    width: 450px;
+    height: 90px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.timer-header {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.timer-label {
+    font-size: 16px;
+    padding: 3px 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 200px;
+}
+
+.timer-body {
+    display: flex;
+    gap: 10px;
+}
+
+.timer-main {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.timer-display {
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background-color: #e8f5e9;
+    min-width: 85px;
+}
+
+.timer-display.yellow {
+    background-color: #fff3e0;
+    color: #f57c00;
+}
+
+.timer-display.red {
+    background-color: #ffebee;
+    color: #d32f2f;
+}
+
+.timer-inputs {
+    display: flex;
+    gap: 5px;
+}
+
+.timer-minutes, .timer-seconds {
+    width: 45px;
+    padding: 3px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.threshold-inputs {
+    display: flex;
+    gap: 5px;
+}
+
+.yellow-threshold, .red-threshold {
+    width: 45px;
+    padding: 3px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.timer-controls {
+    position: absolute;
+    right: 40px;
+    top: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.timer-controls button {
+    padding: 5px;
+    width: 70px;
+    height: 25px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    background-color: #2196F3;
+    color: white;
+    font-size: 14px;
+    line-height: 1;
+}
+
+.timer-controls button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Candidate View Styles */
+.candidate-view {
+    background-color: black;
+    color: white;
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.candidate-view .timer-display {
+    font-size: 300px;
+    background: none;
+    color: #4CAF50;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    line-height: 1;
+    margin: 0;
+    padding: 0;
+}
+
+.candidate-view .timer-display.yellow {
+    color: #FFA500;
+    background: none;
+}
+
+.candidate-view .timer-display.red {
+    color: #f44336;
+    background: none;
+}
+
+.candidate-view .timer-label {
+    font-size: 48px;
+    margin: 20px 0;
+    color: white;
+    text-align: center;
+}
+
+.candidate-view .connection-status {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    z-index: 100;
+}
+
+.candidate-view .control-button {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px 30px;
+    font-size: 24px;
+    background-color: #1976d2;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* Session Info Styles */
+.session-info {
+    background-color: #e3f2fd;
+    padding: 20px;
+    margin: 10px auto;
+    border-radius: 8px;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #666;
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 50%;
+}
+
+.close-button:hover {
+    background-color: rgba(0,0,0,0.1);
+}
+
+.session-code h2 {
+    margin: 0;
+    color: #1565c0;
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.code-display {
+    font-size: 48px;
+    font-family: monospace;
+    color: #1976d2;
+    margin: 10px 0;
+    font-weight: bold;
+    letter-spacing: 4px;
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.code-instructions {
+    color: #546e7a;
+    margin: 10px 0 0 0;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.code-instructions p {
+    margin: 5px 0;
+}
+
+.url-display {
+    font-family: monospace;
+    background: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-left: 5px;
+    font-size: 12px;
+}
+
+/* Landing Page Styles */
+.landing-container {
+    max-width: 600px;
+    margin: 100px auto;
+    padding: 40px;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.landing-header {
+    margin-bottom: 40px;
+}
+
+.landing-header h1 {
+    margin: 0;
+    font-size: 32px;
+    color: #333;
+    font-weight: normal;
+}
+
+.brand-name {
+    font-size: 48px !important;
+    color: #C57100 !important;
+    font-weight: bold !important;
+    margin: 10px 0 !important;
+}
+
+.brand-subtitle {
+    font-size: 24px;
+    color: #666;
+    margin: 0;
+    font-weight: normal;
+}
+
+.logo-container {
+    margin-bottom: 20px;
+}
+
+.logo {
+    width: 200px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+.role-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.role-button {
+    padding: 20px;
+    font-size: 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #C57100;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none;
+    display: block;
+}
+
+.role-button:hover {
+    background-color: #B36200;
+}
+
+/* Candidate Entry Styles */
+.code-entry {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.code-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.code-form input {
+    padding: 20px;
+    font-size: 36px;
+    text-align: center;
+    border: 2px solid #1976d2;
+    border-radius: 8px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.code-form button {
+    padding: 20px;
+    font-size: 24px;
+    background-color: #1976d2;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.code-form button:hover {
+    background-color: #1565c0;
+}
+
+.error-message {
+    color: #d32f2f;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #ffebee;
+    border-radius: 4px;
+}
+
+.timer-yellow {
+    color: #ffd700 !important;
+}
+
+.timer-red {
+    color: #ff0000 !important;
+}

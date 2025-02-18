@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Timer - Proctor View</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+</head>
+<body class="proctor-view">
+    <div class="header">
+        <h1>Exam Timer - Proctor View</h1>
+        <div class="connection-info">
+            <span>Connected Candidates: </span>
+            <span id="connectionCount">0</span>
+        </div>
+        <div id="connectionStatus" class="connection-status">
+            Connecting...
+        </div>
+    </div>
+
+    <div class="controls">
+        <button id="addTimer" class="control-button">Add Timer</button>
+        <button id="resetAll" class="control-button">Reset All</button>
+        <button id="createNewSession" class="control-button">Create New Session</button>
+        <div class="settings">
+            <label>
+                <input type="checkbox" id="proctorSound" checked>
+                Proctor Sound
+            </label>
+            <button id="testSound" class="small-button">Test Sound</button>
+            <label>
+                <input type="checkbox" id="candidateSound" checked>
+                Candidate Sound
+            </label>
+            <label>
+                <input type="checkbox" id="autoStartNext">
+                Auto-start Next Timer
+            </label>
+        </div>
+    </div>
+
+    <div id="sessionInfo" class="session-info" style="display: none;">
+        <button class="close-button" onclick="document.getElementById('sessionInfo').style.display='none'">×</button>
+        <div class="session-code">
+            <h2>Session Code</h2>
+            <div id="sessionCode" class="code-display"></div>
+            <div class="code-instructions">
+                <p>Candidates can join at: <span id="candidateUrl" class="url-display"></span></p>
+            </div>
+        </div>
+    </div>
+
+    <div id="timerContainer" class="timer-container">
+        <!-- Timers will be added here -->
+    </div>
+
+    <!-- Timer Card Template -->
+    <template id="timer-card-template">
+        <div class="timer-card">
+            <div class="timer-header">
+                <input type="text" class="timer-label" placeholder="Timer Label">
+                <button class="remove-timer small-button">×</button>
+            </div>
+            <div class="timer-body">
+                <div class="timer-main">
+                    <div class="timer-display">00:00</div>
+                    <div class="timer-inputs">
+                        <input type="number" class="timer-minutes" min="0" max="99" placeholder="Min">
+                        <input type="number" class="timer-seconds" min="0" max="59" placeholder="Sec">
+                    </div>
+                    <div class="threshold-inputs">
+                        <input type="number" class="yellow-threshold" min="0" placeholder="Yellow" value="30">
+                        <input type="number" class="red-threshold" min="0" placeholder="Red" value="10">
+                    </div>
+                </div>
+                <div class="timer-controls">
+                    <button class="start-individual">Start</button>
+                    <button class="pause-individual" disabled>Pause</button>
+                    <button class="reset-individual">Reset</button>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <audio id="alarmSound" preload="auto">
+        <source src="{{ url_for('static', filename='sounds/alarm.mp3') }}" type="audio/mpeg">
+        <source src="{{ url_for('static', filename='sounds/alarm.wav') }}" type="audio/wav">
+        <source src="{{ url_for('static', filename='sounds/alarm.ogg') }}" type="audio/ogg">
+    </audio>
+
+    <script src="{{ url_for('static', filename='js/proctor.js') }}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', initializeTimers);
+    </script>
+</body>
+</html>
