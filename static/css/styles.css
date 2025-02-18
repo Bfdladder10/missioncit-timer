@@ -131,19 +131,17 @@ body {
     margin: 0;
     padding: 2px 8px;
     border-radius: 4px;
-    background-color: #2e7d32;  /* Dark green */
+    background-color: black;
     min-width: 85px;
-    color: white;
+    color: lime;  /* Bright green */
 }
 
 .timer-display.yellow {
-    background-color: #ffa000;  /* Amber */
-    color: black;
+    color: yellow;  /* Bright yellow */
 }
 
 .timer-display.red {
-    background-color: #d32f2f;  /* Red */
-    color: white;
+    color: red;  /* Bright red */
 }
 
 .timer-inputs {
