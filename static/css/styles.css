@@ -11,7 +11,11 @@ body {
 .header {
     padding: 10px;
     text-align: center;
-    color: white;
+    color: #333;
+}
+
+.header h1 {
+    color: #333;
 }
 
 .connection-status {
@@ -61,10 +65,12 @@ body {
 
 .settings {
     margin-top: 15px;
+    color: #333;
 }
 
 .settings label {
     margin-right: 15px;
+    color: #333;
 }
 
 .small-button {
@@ -108,7 +114,8 @@ body {
     border: 1px solid #C57100;
     border-radius: 4px;
     width: 200px;
-    color: #C57100;
+    color: #333;
+    background-color: white;
 }
 
 .timer-body {
@@ -131,15 +138,15 @@ body {
     border-radius: 4px;
     background-color: black;
     min-width: 85px;
-    color: #00ff00;
+    color: #00ff00;  /* Bright green */
 }
 
 .timer-display.yellow {
-    color: yellow;
+    color: yellow;  /* Bright yellow */
 }
 
 .timer-display.red {
-    color: red;
+    color: red;  /* Bright red */
 }
 
 .timer-inputs {
@@ -147,25 +154,18 @@ body {
     gap: 5px;
 }
 
-.timer-minutes, .timer-seconds {
+.timer-minutes, .timer-seconds, .yellow-threshold, .red-threshold {
     width: 45px;
     padding: 3px;
     border: 1px solid #C57100;
     border-radius: 4px;
-    color: #C57100;
+    color: #333;
+    background-color: white;
 }
 
 .threshold-inputs {
     display: flex;
     gap: 5px;
-}
-
-.yellow-threshold, .red-threshold {
-    width: 45px;
-    padding: 3px;
-    border: 1px solid #C57100;
-    border-radius: 4px;
-    color: #C57100;
 }
 
 .timer-controls {
@@ -197,43 +197,53 @@ body {
 
 /* Candidate View Styles */
 .candidate-view {
-    background-color: black;
-    color: white;
-    padding: 0;
-    margin: 0;
-    height: 100vh;
+    background: linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%);
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 20px;
 }
 
-.candidate-view .timer-display {
-    font-size: 300px;
-    background: none;
-    color: #4CAF50;
-    font-weight: bold;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-    line-height: 1;
-    margin: 0;
-    padding: 0;
-}
-
-.candidate-view .timer-display.yellow {
-    color: #FFA500;
-    background: none;
-}
-
-.candidate-view .timer-display.red {
-    color: #f44336;
-    background: none;
-}
-
-.candidate-view .timer-label {
-    font-size: 48px;
-    margin: 20px 0;
-    color: white;
+.candidate-timer {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     text-align: center;
+    max-width: 400px;
+    width: 100%;
+}
+
+.candidate-timer h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.candidate-timer .timer-display {
+    font-size: 48px;
+    font-weight: bold;
+    text-align: center;
+    margin: 20px 0;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: black;
+    color: #00ff00;  /* Bright green */
+}
+
+.candidate-timer .timer-display.yellow {
+    color: yellow;  /* Bright yellow */
+}
+
+.candidate-timer .timer-display.red {
+    color: red;  /* Bright red */
+}
+
+.candidate-timer .status {
+    color: #333;
+    margin-top: 20px;
+    font-size: 18px;
 }
 
 .candidate-view .connection-status {
